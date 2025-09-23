@@ -2,61 +2,199 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Products</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Shop - Products</title>
+    <style>
+        /* Reset some default styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f7f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #4CAF50;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #2e7d32;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #c8e6c9;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 30px auto;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-details {
+            padding: 15px;
+        }
+
+        .product-details h3 {
+            margin-bottom: 10px;
+            color: #2e7d32;
+        }
+
+        .product-details p {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .product-details .price {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #4CAF50;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #388E3C;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            background-color: #2e7d32;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                font-size: 1.5em;
+            }
+
+            nav {
+                flex-direction: column;
+            }
+
+            nav a {
+                margin: 5px 0;
+            }
+        }
+    </style>
 </head>
 <body>
+
 <header>
-    <h1>Plant Shop 🌿</h1>
-    <div class="cart">
-        🛒 <span id="cart-count">0</span>
-    </div>
-    <nav>
-        <a href="landing.html">Home</a> | 
-        <a href="cart.html">Cart</a>
-    </nav>
+    Plant Shop
 </header>
-<main>
-    <h2>Available House Plants</h2>
-    <div class="products">
-        <div class="product">
-            <img src="images/plant1.jpg" alt="Plant 1">
-            <h3>Snake Plant</h3>
-            <p>Price: $15</p>
-            <button onclick="addToCart('Snake Plant', 15, this)">Add to Cart</button>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<div class="container">
+    <h2 style="text-align:center; margin-bottom: 20px;">Our Products</h2>
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb" alt="Plant 1">
+            <div class="product-details">
+                <h3>Fiddle Leaf Fig</h3>
+                <p>Brightens up your living space and easy to maintain.</p>
+                <p class="price">$25</p>
+                <a href="#" class="btn">Add to Cart</a>
+            </div>
         </div>
-        <div class="product">
-            <img src="images/plant2.jpg" alt="Plant 2">
-            <h3>Monstera</h3>
-            <p>Price: $25</p>
-            <button onclick="addToCart('Monstera', 25, this)">Add to Cart</button>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1598136495111-5dcd1c6e6f19" alt="Plant 2">
+            <div class="product-details">
+                <h3>Snake Plant</h3>
+                <p>Perfect for air purification and low maintenance.</p>
+                <p class="price">$20</p>
+                <a href="#" class="btn">Add to Cart</a>
+            </div>
         </div>
-        <div class="product">
-            <img src="images/plant3.jpg" alt="Plant 3">
-            <h3>Fiddle Leaf Fig</h3>
-            <p>Price: $30</p>
-            <button onclick="addToCart('Fiddle Leaf Fig', 30, this)">Add to Cart</button>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1576402187878-1f299a3e2062" alt="Plant 3">
+            <div class="product-details">
+                <h3>Monstera</h3>
+                <p>A trendy plant with unique leaf patterns.</p>
+                <p class="price">$30</p>
+                <a href="#" class="btn">Add to Cart</a>
+            </div>
         </div>
-        <div class="product">
-            <img src="images/plant4.jpg" alt="Plant 4">
-            <h3>Pothos</h3>
-            <p>Price: $12</p>
-            <button onclick="addToCart('Pothos', 12, this)">Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="images/plant5.jpg" alt="Plant 5">
-            <h3>Peace Lily</h3>
-            <p>Price: $18</p>
-            <button onclick="addToCart('Peace Lily', 18, this)">Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="images/plant6.jpg" alt="Plant 6">
-            <h3>Spider Plant</h3>
-            <p>Price: $10</p>
-            <button onclick="addToCart('Spider Plant', 10, this)">Add to Cart</button>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1582738416928-593a6bb47f68" alt="Plant 4">
+            <div class="product-details">
+                <h3>Aloe Vera</h3>
+                <p>Medicinal plant that’s easy to care for indoors.</p>
+                <p class="price">$15</p>
+                <a href="#" class="btn">Add to Cart</a>
+            </div>
         </div>
     </div>
-</main>
-<script src="js/mock.js"></script>
+</div>
+
+<footer>
+    &copy; 2025 Plant Shop. All rights reserved.
+</footer>
+
 </body>
 </html>
