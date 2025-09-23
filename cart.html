@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    <h1>Plant Shop 🌿</h1>
+    <div class="cart">
+        🛒 <span id="cart-count">0</span>
+    </div>
+    <nav>
+        <a href="landing.html">Home</a> | 
+        <a href="products.html">Products</a>
+    </nav>
+</header>
+<main>
+    <h2>Shopping Cart</h2>
+    <div id="cart-items">
+        <!-- Items will be dynamically added here -->
+    </div>
+    <p>Total Plants: <span id="total-quantity">0</span></p>
+    <p>Total Cost: $<span id="total-cost">0</span></p>
+    <button onclick="checkout()">Checkout</button>
+    <a href="products.html"><button>Continue Shopping</button></a>
+</main>
+<script src="js/mock.js"></script>
+</body>
+</html>

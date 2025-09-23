@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    <h1>Plant Shop 🌿</h1>
+    <div class="cart">
+        🛒 <span id="cart-count">0</span>
+    </div>
+    <nav>
+        <a href="landing.html">Home</a> | 
+        <a href="cart.html">Cart</a>
+    </nav>
+</header>
+<main>
+    <h2>Available House Plants</h2>
+    <div class="products">
+        <div class="product">
+            <img src="images/plant1.jpg" alt="Plant 1">
+            <h3>Snake Plant</h3>
+            <p>Price: $15</p>
+            <button onclick="addToCart('Snake Plant', 15, this)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images/plant2.jpg" alt="Plant 2">
+            <h3>Monstera</h3>
+            <p>Price: $25</p>
+            <button onclick="addToCart('Monstera', 25, this)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images/plant3.jpg" alt="Plant 3">
+            <h3>Fiddle Leaf Fig</h3>
+            <p>Price: $30</p>
+            <button onclick="addToCart('Fiddle Leaf Fig', 30, this)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images/plant4.jpg" alt="Plant 4">
+            <h3>Pothos</h3>
+            <p>Price: $12</p>
+            <button onclick="addToCart('Pothos', 12, this)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images/plant5.jpg" alt="Plant 5">
+            <h3>Peace Lily</h3>
+            <p>Price: $18</p>
+            <button onclick="addToCart('Peace Lily', 18, this)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="images/plant6.jpg" alt="Plant 6">
+            <h3>Spider Plant</h3>
+            <p>Price: $10</p>
+            <button onclick="addToCart('Spider Plant', 10, this)">Add to Cart</button>
+        </div>
+    </div>
+</main>
+<script src="js/mock.js"></script>
+</body>
+</html>
