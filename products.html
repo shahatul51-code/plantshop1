@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plant Shop - Products</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=80&q=60" alt="logo" style="width:44px;height:44px;border-radius:8px;object-fit:cover">
+      <div>
+        <h1>Plant Shop</h1>
+        <div style="font-size:13px;opacity:0.9">Plants for every corner</div>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+    <div class="cart">
+      <a href="cart.html" style="color:white;text-decoration:none">
+        <span class="icon">🛒</span>
+        <span id="cart-badge" class="badge">0</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2 style="margin-bottom:12px">Products</h2>
+    <div id="products-root"></div>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    // initialize products page
+    window.PlantShop.wireHeader();
+    window.PlantShop.renderProductsPage();
+    // subscribe to store to keep buttons disabled state consistent across tabs/pages
+    window.PlantShop.store.subscribe(()=> {
+      // update add buttons disabled state
+      const items = window.PlantShop.store.getState().cart.items || {};
+      document.querySelectorAll('.add-to').forEach(b=>{
+        const id = b.dataset.id;
+        if(items[id]){ b.disabled=true; b.textContent='Added'; b.style.opacity=0.7; }
+      });
+    });
+  </script>
+</body>
+</html>

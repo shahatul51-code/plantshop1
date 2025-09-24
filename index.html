@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plant Shop - Home</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="brand">
+      <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=80&q=60" alt="logo" style="width:44px;height:44px;border-radius:8px;object-fit:cover">
+      <div>
+        <h1>Plant Shop</h1>
+        <div style="font-size:13px;opacity:0.9">Green your spaces</div>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+    <div class="cart">
+      <a href="cart.html" style="color:white;text-decoration:none">
+        <span class="icon">🛒</span>
+        <span id="cart-badge" class="badge">0</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Landing hero -->
+  <main class="landing">
+    <div class="hero">
+      <h2>Plant Shop — Bringing green home</h2>
+      <p>We are a small company dedicated to delivering healthy, beautiful houseplants that brighten your spaces and purify your air.
+      Our handpicked selection fits apartments, offices, and outdoor patios.</p>
+      <div class="cta" style="margin-top:12px">
+        <a href="products.html" class="btn">Get Started</a>
+        <a href="#about" class="btn ghost">Learn More</a>
+      </div>
+    </div>
+  </main>
+
+  <section class="container" id="about">
+    <h2 style="margin-bottom:10px">Why choose Plant Shop?</h2>
+    <p style="color:var(--muted)">We carefully grow and ship plants with clear care instructions. Whether you're a beginner or a plant parent, our selection includes low-maintenance and aesthetic plants suited to different homes.</p>
+  </section>
+
+  <script src="app.js"></script>
+  <script>
+    // wire header badge
+    window.PlantShop.wireHeader();
+  </script>
+</body>
+</html>
