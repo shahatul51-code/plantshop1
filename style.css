@@ -3,26 +3,22 @@ body {
   margin: 0;
   padding: 0;
 }
+
 header {
   background: #2e7d32;
   color: white;
   padding: 10px;
 }
-header nav h1 {
-  display: inline;
-}
-header nav ul {
-  list-style: none;
-  float: right;
-}
-header nav ul li {
-  display: inline;
-  margin-left: 15px;
-}
+header nav h1 { display: inline; }
+header nav ul { list-style: none; float: right; margin: 0; padding: 0; }
+header nav ul li { display: inline; margin-left: 15px; }
+header nav ul li a { color: white; text-decoration: none; font-weight: bold; }
+
 .product-grid {
   display: flex;
-  gap: 20px;
   flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
 }
 .product-card {
   border: 1px solid #ccc;
@@ -30,17 +26,12 @@ header nav ul li {
   width: 150px;
   text-align: center;
 }
-button {
-  padding: 5px 10px;
-  cursor: pointer;
+button { padding: 5px 10px; cursor: pointer; }
+
+.cart-item {
+  display: flex;
+  gap: 15px;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
 }
-.landing {
-  text-align: center;
-  padding: 50px;
-}
-.btn {
-  background: #2e7d32;
-  color: white;
-  text-decoration: none;
-  padding: 10px 20px;
-}
+.cart-item img { border: 1px solid #ddd; }
