@@ -19,22 +19,26 @@ document.querySelectorAll(".add-to-cart").forEach(button => {
     const id = button.dataset.id;
     const name = button.dataset.name;
     const price = parseFloat(button.dataset.price);
+
     let existing = cart.find(item => item.id === id);
     if(!existing) cart.push({id, name, price, quantity: 1});
+
     saveCart();
     button.disabled = true;
     button.textContent = "Added ✅";
   });
 });
 
-// Cart Page Functions
+// Render cart page
 function renderCartPage() {
   const container = document.getElementById("cart-container");
   const totalItemsEl = document.getElementById("total-items");
   const totalCostEl = document.getElementById("total-cost");
+
   if(!container) return;
 
   container.innerHTML = "";
+
   if(cart.length === 0){
     container.innerHTML = "<p>Your cart is empty 🌱</p>";
     totalItemsEl.textContent = "0";
@@ -61,28 +65,32 @@ function renderCartPage() {
 
   const totalItems = cart.reduce((sum,i)=>sum+i.quantity,0);
   const totalCost = cart.reduce((sum,i)=>sum+i.price*i.quantity,0);
+
   totalItemsEl.textContent = totalItems;
   totalCostEl.textContent = `$${totalCost}`;
 }
 
-// Increase/Decrease/Delete item
+// Increase / Decrease / Delete item
 function increaseItem(id){
   const item = cart.find(i=>i.id===id);
   if(item){ item.quantity++; saveCart(); renderCartPage(); }
 }
+
 function decreaseItem(id){
   const item = cart.find(i=>i.id===id);
   if(item){
-    item.quantity>1 ? item.quantity-- : cart=cart.filter(i=>i.id!==id);
+    if(item.quantity > 1) item.quantity--;
+    else cart = cart.filter(i=>i.id!==id);
     saveCart(); renderCartPage();
   }
 }
+
 function removeItem(id){
   cart = cart.filter(i=>i.id!==id);
   saveCart(); renderCartPage();
 }
 
-// Clear Cart
+// Clear cart
 function clearCart(){
   if(cart.length === 0) return;
   if(confirm("Are you sure you want to clear the cart?")) {
@@ -102,7 +110,7 @@ function checkout(){
 }
 
 // Initialize page
-window.onload = ()=>{
-  renderCartPage();
+window.onload = () => {
   updateCartCount();
+  renderCartPage();
 };
