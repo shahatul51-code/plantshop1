@@ -6,64 +6,67 @@
 <title>PlantShop - Home</title>
 <link rel="stylesheet" href="style.css">
 <style>
-  /* Landing page background */
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: url('images/landing-bg.jpg') no-repeat center center fixed;
-    background-size: cover;
-  }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url('images/landing-bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
 
-  header {
-    background: rgba(46, 125, 50, 0.9);
-    color: white;
-    padding: 10px 20px;
-  }
+header {
+  background: rgba(46,125,50,0.9);
+  color: white;
+  padding: 10px 20px;
+}
+header nav h1 { display: inline; }
+header nav ul {
+  list-style: none;
+  float: right;
+  margin: 0;
+  padding: 0;
+}
+header nav ul li { display: inline; margin-left: 15px; }
+header nav ul li a { color: white; text-decoration: none; font-weight: bold; }
 
-  header nav h1 {
-    display: inline;
-  }
+.landing {
+  text-align: center;
+  color: white;
+  padding: 150px 20px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+}
+.landing h2 { font-size: 3em; margin-bottom: 20px; }
+.landing p { font-size: 1.5em; margin-bottom: 40px; }
+.btn {
+  background: #2e7d32;
+  color: white;
+  text-decoration: none;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+.btn:hover { background: #1b5e20; }
+</style>
+</head>
+<body>
 
-  header nav ul {
-    list-style: none;
-    float: right;
-    margin: 0;
-    padding: 0;
-  }
+<header>
+  <nav>
+    <h1>🌿 PlantShop</h1>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="cart.html">Cart 🛒 <span id="cart-count">0</span></a></li>
+    </ul>
+  </nav>
+</header>
 
-  header nav ul li {
-    display: inline;
-    margin-left: 15px;
-  }
+<main class="landing">
+  <h2>Welcome to PlantShop</h2>
+  <p>Discover beautiful houseplants for every corner of your home.</p>
+  <a href="products.html" class="btn">Get Started</a>
+</main>
 
-  header nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-  }
-
-  .landing {
-    text-align: center;
-    color: white;
-    padding: 150px 20px;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
-  }
-
-  .landing h2 {
-    font-size: 3em;
-    margin-bottom: 20px;
-  }
-
-  .landing p {
-    font-size: 1.5em;
-    margin-bottom: 40px;
-  }
-
-  .btn {
-    background: #2e7d32;
-    color: white;
-    text-decoration: none;
-    padding: 15px 30px;
-    font-size: 1.2em;
-    border-radius: 8px;
-    transition: bac
+<script src="script.js"></script>
+</body>
+</html>
