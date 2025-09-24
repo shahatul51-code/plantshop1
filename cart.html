@@ -1,32 +1,77 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PlantShop - Cart</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <title>Plant Shop - Cart</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <nav>
-    <h1>🌿 PlantShop</h1>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="products.html">Products</a></li>
-      <li><a href="cart.html">Cart 🛒 <span id="cart-count">0</span></a></li>
-    </ul>
-  </nav>
-</header>
+  <header class="header">
+    <div class="brand">
+      <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=80&q=60" alt="logo" style="width:44px;height:44px;border-radius:8px;object-fit:cover">
+      <div>
+        <h1>Plant Shop</h1>
+        <div style="font-size:13px;opacity:0.9">Your cart</div>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+    <div class="cart">
+      <a href="cart.html" style="color:white;text-decoration:none">
+        <span class="icon">🛒</span>
+        <span id="cart-badge" class="badge">0</span>
+      </a>
+    </div>
+  </header>
 
-<main>
-  <h2>Shopping Cart</h2>
-  <div id="cart-container"></div>
-  <p>Total Items: <span id="total-items">0</span></p>
-  <p>Total Cost: <span id="total-cost">$0</span></p>
-  <button onclick="checkout()">Checkout</button>
-  <a href="products.html"><button>Continue Shopping</button></a>
-</main>
+  <main class="container" style="display:grid;grid-template-columns:1fr 320px;gap:18px">
+    <section>
+      <h2 style="margin-bottom:12px">Shopping Cart</h2>
+      <div id="cart-list" class="cart-list"></div>
+    </section>
 
-<script src="script.js"></script>
+    <aside>
+      <div class="summary">
+        <h3>Order Summary</h3>
+        <div class="row" style="display:flex;justify-content:space-between;margin-top:8px">
+          <div>Total items</div><div id="cart-total-count">0</div>
+        </div>
+        <div class="row" style="display:flex;justify-content:space-between">
+          <div>Subtotal</div><div id="cart-total-cost">$0.00</div>
+        </div>
+        <div class="actions">
+          <button id="checkout" class="btn">Checkout</button>
+          <a href="products.html" class="btn">Continue Shopping</a>
+          <button id="clear-cart" class="btn ghost" style="background:transparent;border:1px solid #ddd;color:#333">Clear Cart</button>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    window.PlantShop.wireHeader();
+    function refresh(){
+      window.PlantShop.renderCartPage();
+    }
+    refresh();
+    // subscribe to store changes to refresh cart list and totals
+    window.PlantShop.store.subscribe(()=> refresh());
+
+    document.getElementById('checkout').addEventListener('click', ()=>{
+      alert('Checkout — Coming Soon!');
+    });
+    document.getElementById('clear-cart').addEventListener('click', ()=>{
+      if(confirm('Clear all items from the cart?')){
+        window.PlantShop.store.dispatch({type:'CLEAR'});
+        // update header badge
+        window.PlantShop.wireHeader();
+      }
+    });
+  </script>
 </body>
 </html>
