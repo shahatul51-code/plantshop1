@@ -1,52 +1,81 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Plant Shop - Products</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlantShop - Products</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="header">
-    <div class="brand">
-      <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=80&q=60" alt="logo" style="width:44px;height:44px;border-radius:8px;object-fit:cover">
-      <div>
-        <h1>Plant Shop</h1>
-        <div style="font-size:13px;opacity:0.9">Plants for every corner</div>
-      </div>
-    </div>
+  <!-- Header -->
+  <header>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="cart.html">Cart</a>
+      <h1>🌿 PlantShop</h1>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="cart.html">Cart 🛒 <span id="cart-count">0</span></a></li>
+      </ul>
     </nav>
-    <div class="cart">
-      <a href="cart.html" style="color:white;text-decoration:none">
-        <span class="icon">🛒</span>
-        <span id="cart-badge" class="badge">0</span>
-      </a>
-    </div>
   </header>
 
-  <main class="container">
-    <h2 style="margin-bottom:12px">Products</h2>
-    <div id="products-root"></div>
+  <!-- Product Categories -->
+  <main>
+    <section>
+      <h2>Living Room Plants</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="images/monstera.jpg" alt="Monstera">
+          <h3>Monstera</h3>
+          <p>$25</p>
+          <button class="add-to-cart" data-id="1" data-name="Monstera" data-price="25">Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <img src="images/ficus.jpg" alt="Ficus">
+          <h3>Ficus</h3>
+          <p>$30</p>
+          <button class="add-to-cart" data-id="2" data-name="Ficus" data-price="30">Add to Cart</button>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Low Light Plants</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="images/snakeplant.jpg" alt="Snake Plant">
+          <h3>Snake Plant</h3>
+          <p>$20</p>
+          <button class="add-to-cart" data-id="3" data-name="Snake Plant" data-price="20">Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <img src="images/zzplant.jpg" alt="ZZ Plant">
+          <h3>ZZ Plant</h3>
+          <p>$22</p>
+          <button class="add-to-cart" data-id="4" data-name="ZZ Plant" data-price="22">Add to Cart</button>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Air Purifying Plants</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="images/peace-lily.jpg" alt="Peace Lily">
+          <h3>Peace Lily</h3>
+          <p>$28</p>
+          <button class="add-to-cart" data-id="5" data-name="Peace Lily" data-price="28">Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <img src="images/spiderplant.jpg" alt="Spider Plant">
+          <h3>Spider Plant</h3>
+          <p>$18</p>
+          <button class="add-to-cart" data-id="6" data-name="Spider Plant" data-price="18">Add to Cart</button>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <script src="app.js"></script>
-  <script>
-    // initialize products page
-    window.PlantShop.wireHeader();
-    window.PlantShop.renderProductsPage();
-    // subscribe to store to keep buttons disabled state consistent across tabs/pages
-    window.PlantShop.store.subscribe(()=> {
-      // update add buttons disabled state
-      const items = window.PlantShop.store.getState().cart.items || {};
-      document.querySelectorAll('.add-to').forEach(b=>{
-        const id = b.dataset.id;
-        if(items[id]){ b.disabled=true; b.textContent='Added'; b.style.opacity=0.7; }
-      });
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
